@@ -1,0 +1,16 @@
+apiVersion: validation.spectrocloud.labs/v1
+kind: KubescapeValidator
+metadata:
+  labels:
+    app.kubernetes.io/name: kubescapevalidator
+    app.kubernetes.io/instance: kubescapevalidator-sample
+    app.kubernetes.io/part-of: validator-plugin-kubescape
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: validator-plugin-kubescape
+  name: kubescapevalidator-sample
+spec:
+  severityLimitRules:
+    - name: "No Criticals"
+      critical: 0
+    - name: "No Unknowns"
+      unknown: 0

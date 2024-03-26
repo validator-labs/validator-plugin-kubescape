@@ -1,0 +1,31 @@
+# permissions for end users to edit kubescapevalidators.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: kubescapevalidator-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: validator-plugin-kubescape
+    app.kubernetes.io/part-of: validator-plugin-kubescape
+    app.kubernetes.io/managed-by: kustomize
+  name: kubescapevalidator-editor-role
+rules:
+- apiGroups:
+  - validation.spectrocloud.labs
+  resources:
+  - kubescapevalidators
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - validation.spectrocloud.labs
+  resources:
+  - kubescapevalidators/status
+  verbs:
+  - get

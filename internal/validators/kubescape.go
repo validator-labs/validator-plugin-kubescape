@@ -21,13 +21,13 @@ type kubescapeRule interface {
 }
 
 type KubescapeService struct {
-	log              logr.Logger
+	Log              logr.Logger
 	kvApiServerStore *kubevuln.APIServerStore
 }
 
 func NewKubescapeService(log logr.Logger, kvApi *kubevuln.APIServerStore) *KubescapeService {
 	return &KubescapeService{
-		log:              log,
+		Log:              log,
 		kvApiServerStore: kvApi,
 	}
 }
@@ -35,53 +35,67 @@ func NewKubescapeService(log logr.Logger, kvApi *kubevuln.APIServerStore) *Kubes
 func (n *KubescapeService) ReconcileSeverityRule(nn ktypes.NamespacedName, rule validationv1.SeverityLimitRule) (*types.ValidationRuleResult, error) {
 	vr := buildValidationResult(rule, constants.ValidationTypeSeverity)
 
-	manifests, err := n.kvApiServerStore.StorageClient.VulnerabilityManifestSummaries("kubescape").List(context.Background(), metav1.ListOptions{})
+	manifestList, err := n.kvApiServerStore.StorageClient.VulnerabilityManifests("kubescape").List(context.Background(), metav1.ListOptions{})
 	if err != nil {
 		return vr, err
 	}
 
-	var vuln []kubescapev1.VulnerabilityManifestSummary
-	vulnerabilityCount := validationv1.SeverityLimitRule{}
+	var manifests []kubescapev1.VulnerabilityManifest
 
-	for _, v := range manifests.Items {
+	checked := make(map[string]bool)
+	summary := make(map[string]int)
+	matches := []kubescapev1.Match{}
 
-		m, err := n.kvApiServerStore.StorageClient.VulnerabilityManifestSummaries("kubescape").Get(context.Background(), v.Name, metav1.GetOptions{})
-
+	for _, v := range manifestList.Items {
+		manifest, err := n.kvApiServerStore.StorageClient.VulnerabilityManifests("kubescape").Get(context.Background(), v.Name, metav1.GetOptions{})
 		if err != nil {
 			return vr, err
 		}
 
-		vuln = append(vuln, *m)
+		manifests = append(manifests, *manifest)
 
-		vulnerabilityCount.Critical += m.Spec.Severities.Critical.All
-		vulnerabilityCount.High += m.Spec.Severities.High.All
-		vulnerabilityCount.Medium += m.Spec.Severities.Medium.All
-		vulnerabilityCount.Low += m.Spec.Severities.Low.All
-		vulnerabilityCount.Negligible += m.Spec.Severities.Negligible.All
-		vulnerabilityCount.Unknown += m.Spec.Severities.Unknown.All
+		for _, match := range manifest.Spec.Payload.Matches {
+			// make sure it is a unique CVE
+			if val, ok := checked[match.Vulnerability.ID]; ok && val {
+				continue
+			}
+
+			checked[match.Vulnerability.ID] = true
+			matches = append(matches, match)
+
+			vr.Condition.Details = append(vr.Condition.Details, match.Vulnerability.ID)
+
+			if _, ok := summary[match.Vulnerability.Severity]; ok {
+				summary[match.Vulnerability.Severity] += 1
+			} else {
+				summary[match.Vulnerability.Severity] = 0
+			}
+
+		}
 	}
 
-	if vulnerabilityCount.Critical > rule.Critical {
+	// Checking Vulnerability Counts
+	if summary["Critical"] > rule.Critical {
 		vr.Condition.Status = v1.ConditionFalse
 	}
 
-	if vulnerabilityCount.High > rule.High {
+	if summary["High"] > rule.High {
 		vr.Condition.Status = v1.ConditionFalse
 	}
 
-	if vulnerabilityCount.Medium > rule.Medium {
+	if summary["Medium"] > rule.Medium {
 		vr.Condition.Status = v1.ConditionFalse
 	}
 
-	if vulnerabilityCount.Low > rule.Low {
+	if summary["Low"] > rule.Low {
 		vr.Condition.Status = v1.ConditionFalse
 	}
 
-	if vulnerabilityCount.Unknown > rule.Unknown {
+	if summary["Unknown"] > rule.Unknown {
 		vr.Condition.Status = v1.ConditionFalse
 	}
 
-	if vulnerabilityCount.Negligible > rule.Negligible {
+	if summary["Negligible"] > rule.Negligible {
 		vr.Condition.Status = v1.ConditionFalse
 	}
 

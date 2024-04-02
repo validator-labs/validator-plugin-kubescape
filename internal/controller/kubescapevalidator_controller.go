@@ -115,7 +115,7 @@ func (r *KubescapeValidatorReconciler) Reconcile(ctx context.Context, req ctrl.R
 	kubescapeService := validators.NewKubescapeService(r.Log, kubescape)
 
 	for _, rule := range validator.Spec.SeverityLimitRules {
-		vrr, err := kubescapeService.ReconcileSeverityRule(nn, rule)
+		vrr, err := kubescapeService.ReconcileSeverityRule(nn, rule, validator.Spec.IgnoredVulnerabilities)
 		if err != nil {
 			l.Error(err, "failed to reconcile Severity rule")
 		}

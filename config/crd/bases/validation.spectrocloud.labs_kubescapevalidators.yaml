@@ -35,9 +35,11 @@ spec:
           spec:
             description: KubescapeValidatorSpec defines the desired state of KubescapeValidator
             properties:
+              ignoredVulnerabilities:
+                items:
+                  type: string
+                type: array
               severityLimitRules:
-                description: Foo is an example field of KubescapeValidator. Edit kubescapevalidator_types.go
-                  to remove/update
                 items:
                   properties:
                     critical:

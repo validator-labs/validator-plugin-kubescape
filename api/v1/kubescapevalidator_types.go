@@ -25,11 +25,9 @@ import (
 
 // KubescapeValidatorSpec defines the desired state of KubescapeValidator
 type KubescapeValidatorSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of KubescapeValidator. Edit kubescapevalidator_types.go to remove/update
 	SeverityLimitRules []SeverityLimitRule `json:"severityLimitRules,omitempty" yaml:"severityLimitRules,omitempty"`
+	// Ignore CVEs
+	IgnoredVulnerabilities []string `json:"ignoredVulnerabilities,omitempty" yaml:"ignoredVulnerabilities,omitempty"`
 }
 
 // Increase for every rule

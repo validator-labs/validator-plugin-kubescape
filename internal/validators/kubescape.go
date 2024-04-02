@@ -3,6 +3,7 @@ package validators
 import (
 	"context"
 	"fmt"
+	"slices"
 
 	"github.com/go-logr/logr"
 	kubevuln "github.com/kubescape/kubevuln/repositories"
@@ -32,7 +33,7 @@ func NewKubescapeService(log logr.Logger, kvApi *kubevuln.APIServerStore) *Kubes
 	}
 }
 
-func (n *KubescapeService) ReconcileSeverityRule(nn ktypes.NamespacedName, rule validationv1.SeverityLimitRule) (*types.ValidationRuleResult, error) {
+func (n *KubescapeService) ReconcileSeverityRule(nn ktypes.NamespacedName, rule validationv1.SeverityLimitRule, ignoredVulnerabilities []string) (*types.ValidationRuleResult, error) {
 	vr := buildValidationResult(rule, constants.ValidationTypeSeverity)
 
 	manifestList, err := n.kvApiServerStore.StorageClient.VulnerabilityManifests("kubescape").List(context.Background(), metav1.ListOptions{})
@@ -60,9 +61,14 @@ func (n *KubescapeService) ReconcileSeverityRule(nn ktypes.NamespacedName, rule 
 				continue
 			}
 
+			if ok := slices.Contains(ignoredVulnerabilities, match.Vulnerability.ID); ok {
+				continue
+			}
+
 			checked[match.Vulnerability.ID] = true
 			matches = append(matches, match)
 
+			// TODO: better details
 			vr.Condition.Details = append(vr.Condition.Details, match.Vulnerability.ID)
 
 			if _, ok := summary[match.Vulnerability.Severity]; ok {

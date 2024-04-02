@@ -14,3 +14,5 @@ spec:
       critical: 0
     - name: "No Unknowns"
       unknown: 0
+  ignoredVulnerabilities:
+    - "CVE-2022-21698"

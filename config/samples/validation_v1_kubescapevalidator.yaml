@@ -9,10 +9,14 @@ metadata:
     app.kubernetes.io/created-by: validator-plugin-kubescape
   name: kubescapevalidator-sample
 spec:
-  severityLimitRules:
-    - name: "No Criticals"
-      critical: 0
-    - name: "No Unknowns"
-      unknown: 0
-  ignoredVulnerabilities:
+  severityLimitRule:
+    critical: 0
+    unknown: 0
+
+  # Rule to flag CVEs
+  flaggedCVERule:
     - "CVE-2022-21698"
+  
+  # Global rule to ignore specified CVEs
+  ignoredCVERule:
+    - "CVE-xxxx-xxxx"

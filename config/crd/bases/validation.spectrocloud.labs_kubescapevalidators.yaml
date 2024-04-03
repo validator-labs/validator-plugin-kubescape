@@ -35,31 +35,31 @@ spec:
           spec:
             description: KubescapeValidatorSpec defines the desired state of KubescapeValidator
             properties:
-              ignoredVulnerabilities:
+              flaggedCVERule:
+                description: Rule for Flagged CVEs
                 items:
                   type: string
                 type: array
-              severityLimitRules:
+              ignoredCVERule:
+                description: Global Ignore CVEs
                 items:
-                  properties:
-                    critical:
-                      type: integer
-                    high:
-                      type: integer
-                    low:
-                      type: integer
-                    medium:
-                      type: integer
-                    name:
-                      type: string
-                    negligible:
-                      type: integer
-                    unknown:
-                      type: integer
-                  required:
-                  - name
-                  type: object
+                  type: string
                 type: array
+              severityLimitRule:
+                properties:
+                  critical:
+                    type: integer
+                  high:
+                    type: integer
+                  low:
+                    type: integer
+                  medium:
+                    type: integer
+                  negligible:
+                    type: integer
+                  unknown:
+                    type: integer
+                type: object
             type: object
           status:
             description: KubescapeValidatorStatus defines the observed state of KubescapeValidator

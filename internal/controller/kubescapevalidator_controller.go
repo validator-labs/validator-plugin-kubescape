@@ -114,8 +114,22 @@ func (r *KubescapeValidatorReconciler) Reconcile(ctx context.Context, req ctrl.R
 
 	kubescapeService := validators.NewKubescapeService(r.Log, kubescape)
 
-	for _, rule := range validator.Spec.SeverityLimitRules {
-		vrr, err := kubescapeService.ReconcileSeverityRule(nn, rule, validator.Spec.IgnoredVulnerabilities)
+	manifests, err := kubescapeService.Manifests()
+	if err != nil {
+		return ctrl.Result{RequeueAfter: time.Second * 120}, errors.New("no manifests found")
+	}
+
+	// Reconcile Severity Rule
+	vrr, err := kubescapeService.ReconcileSeverityRule(nn, validator.Spec.SeverityLimitRule, validator.Spec.IgnoredCVERule, manifests)
+	if err != nil {
+		l.Error(err, "failed to reconcile Severity rule")
+	}
+	resp.AddResult(vrr, err)
+
+	// Reconcile Flagged CVE Rule
+	for _, rule := range validator.Spec.FlaggedCVERule {
+		fmt.Println("ahash")
+		vrr, err := kubescapeService.ReconcileFlaggedCVERule(nn, rule, manifests)
 		if err != nil {
 			l.Error(err, "failed to reconcile Severity rule")
 		}
@@ -154,7 +168,7 @@ func buildValidationResult(validator *kubescapevalidatorv1.KubescapeValidator) *
 		},
 		Spec: vapi.ValidationResultSpec{
 			Plugin:          constants.PluginCode,
-			ExpectedResults: validator.Spec.ResultCount(),
+			ExpectedResults: 1,
 		},
 	}
 }

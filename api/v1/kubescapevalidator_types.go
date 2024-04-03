@@ -17,6 +17,8 @@ limitations under the License.
 package v1
 
 import (
+	"fmt"
+
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -25,28 +27,36 @@ import (
 
 // KubescapeValidatorSpec defines the desired state of KubescapeValidator
 type KubescapeValidatorSpec struct {
-	SeverityLimitRules []SeverityLimitRule `json:"severityLimitRules,omitempty" yaml:"severityLimitRules,omitempty"`
-	// Ignore CVEs
-	IgnoredVulnerabilities []string `json:"ignoredVulnerabilities,omitempty" yaml:"ignoredVulnerabilities,omitempty"`
+	SeverityLimitRule SeverityLimitRule `json:"severityLimitRule,omitempty" yaml:"severityLimitRule,omitempty"`
+	// Global Ignore CVEs
+	IgnoredCVERule []string `json:"ignoredCVERule,omitempty" yaml:"ignoredCVERule,omitempty"`
+	// Rule for Flagged CVEs
+	FlaggedCVERule []FlaggedCVE `json:"flaggedCVERule,omitempty" yaml:"flaggedCVERule,omitempty"`
+}
+
+type FlaggedCVE string
+
+func (r FlaggedCVE) Name() string {
+	return fmt.Sprintf("FLAG-%s", string(r))
 }
 
 // Increase for every rule
 func (s KubescapeValidatorSpec) ResultCount() int {
-	return len(s.SeverityLimitRules)
+	count := 1
+	return count
 }
 
 type SeverityLimitRule struct {
-	RuleName   string `json:"name"`
-	Critical   int    `json:"critical,omitempty"`
-	High       int    `json:"high,omitempty"`
-	Medium     int    `json:"medium,omitempty"`
-	Low        int    `json:"low,omitempty"`
-	Negligible int    `json:"negligible,omitempty"`
-	Unknown    int    `json:"unknown,omitempty"`
+	Critical   *int `json:"critical,omitempty"`
+	High       *int `json:"high,omitempty"`
+	Medium     *int `json:"medium,omitempty"`
+	Low        *int `json:"low,omitempty"`
+	Negligible *int `json:"negligible,omitempty"`
+	Unknown    *int `json:"unknown,omitempty"`
 }
 
 func (r SeverityLimitRule) Name() string {
-	return r.RuleName
+	return "SeverityLimitRule"
 }
 
 // KubescapeValidatorStatus defines the observed state of KubescapeValidator

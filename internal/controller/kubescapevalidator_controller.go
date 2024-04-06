@@ -32,8 +32,8 @@ import (
 
 	"github.com/go-logr/logr"
 	kubevuln "github.com/kubescape/kubevuln/repositories"
-	kubescapevalidatorv1 "github.com/spectrocloud-labs/validator-plugin-kubescape/api/v1"
-	validationv1 "github.com/spectrocloud-labs/validator-plugin-kubescape/api/v1"
+	kubescapevalidatorv1 "github.com/spectrocloud-labs/validator-plugin-kubescape/api/v1alpha1"
+	validationv1 "github.com/spectrocloud-labs/validator-plugin-kubescape/api/v1alpha1"
 	"github.com/spectrocloud-labs/validator-plugin-kubescape/internal/constants"
 	"github.com/spectrocloud-labs/validator-plugin-kubescape/internal/validators"
 	vapi "github.com/spectrocloud-labs/validator/api/v1alpha1"

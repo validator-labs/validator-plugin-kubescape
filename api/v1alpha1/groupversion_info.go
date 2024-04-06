@@ -17,7 +17,7 @@ limitations under the License.
 // Package v1 contains API Schema definitions for the validation v1 API group
 // +kubebuilder:object:generate=true
 // +groupName=validation.spectrocloud.labs
-package v1
+package v1alpha1
 
 import (
 	"k8s.io/apimachinery/pkg/runtime/schema"

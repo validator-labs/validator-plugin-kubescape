@@ -30,7 +30,7 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	validationv1 "github.com/spectrocloud-labs/validator-plugin-kubescape/api/v1"
+	validationv1 "github.com/spectrocloud-labs/validator-plugin-kubescape/api/v1alpha1"
 	//+kubebuilder:scaffold:imports
 )
 

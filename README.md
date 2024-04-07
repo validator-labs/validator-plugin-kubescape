@@ -6,7 +6,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/spectrocloud-labs/validator-plugin-kubescape.svg)](https://pkg.go.dev/github.com/spectrocloud-labs/validator-plugin-kubescape)
 
 # validator-plugin-kubescape
-The AWS [validator](https://github.com/spectrocloud-labs/validator) plugin validates against Kubescape to provide information regarding vulnerabilities.
+The Kubescape [validator](https://github.com/spectrocloud-labs/validator) plugin validates against Kubescape to provide information regarding vulnerabilities.
 
 ## Description
 The Kubescape validator plugin reconciles `KubescapeValidator` custom resources to perform the following validations against your Kubescape API:

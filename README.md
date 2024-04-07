@@ -1,8 +1,31 @@
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/spectrocloud-labs/validator-plugin-kubescape/issues)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Test](https://github.com/spectrocloud-labs/validator-plugin-kubescape/actions/workflows/test.yaml/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/spectrocloud-labs/validator-plugin-kubescape)](https://goreportcard.com/report/github.com/spectrocloud-labs/validator-plugin-kubescape)
+[![codecov](https://codecov.io/gh/spectrocloud-labs/validator-plugin-kubescape/graph/badge.svg?token=QHR08U8SEQ)](https://codecov.io/gh/spectrocloud-labs/validator-plugin-kubescape)
+[![Go Reference](https://pkg.go.dev/badge/github.com/spectrocloud-labs/validator-plugin-kubescape.svg)](https://pkg.go.dev/github.com/spectrocloud-labs/validator-plugin-kubescape)
+
 # validator-plugin-kubescape
-// TODO(user): Add simple overview of use/purpose
+The AWS [validator](https://github.com/spectrocloud-labs/validator) plugin validates against Kubescape to provide information regarding vulnerabilities.
 
 ## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+The Kubescape validator plugin reconciles `KubescapeValidator` custom resources to perform the following validations against your Kubescape API:
+
+1. Specify cluster CVE severity limits
+2. Flag cluster if specific CVE is found within cluster
+
+Each `KubescapeValidator` CR is (re)-processed every two minutes to continuously ensure that your network matches the expected state.
+
+
+## Installation
+
+The Network validator plugin is meant to be installed by validator (via a ValidatorConfig), but it can also be installed directly as follows:
+
+```
+helm repo add validator-plugin-kubescape https://spectrocloud-labs.github.io/validator-plugin-kubescape
+helm repo update
+helm install validator-plugin-network validator-plugin-network/validator-plugin-kubescape -n validator-plugin-kubescape --create-namespace
+```
 
 ## Getting Started
 You’ll need a Kubernetes cluster to run against. You can use [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or run against a remote cluster.

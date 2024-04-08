@@ -27,6 +27,9 @@ import (
 
 // KubescapeValidatorSpec defines the desired state of KubescapeValidator
 type KubescapeValidatorSpec struct {
+	//+kubebuilder:default=kubescape
+	Namespace string `json:"namespace,omitempty" yaml:"namespace,omitempty"`
+	// Global Severity Limit Rule
 	SeverityLimitRule SeverityLimitRule `json:"severityLimitRule,omitempty" yaml:"severityLimitRule,omitempty"`
 	// Global Ignore CVEs
 	IgnoredCVERule []string `json:"ignoredCVERule,omitempty" yaml:"ignoredCVERule,omitempty"`
@@ -42,7 +45,13 @@ func (r FlaggedCVE) Name() string {
 
 // Increase for every rule
 func (s KubescapeValidatorSpec) ResultCount() int {
-	count := 1
+	count := 0
+	if s.SeverityLimitRule != (SeverityLimitRule{}) {
+		count++
+	}
+	count += len(s.IgnoredCVERule)
+	count += len(s.FlaggedCVERule)
+
 	return count
 }
 

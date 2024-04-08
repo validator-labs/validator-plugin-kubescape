@@ -55,15 +55,20 @@ func (n *KubescapeService) Manifests() ([]kubescapev1.VulnerabilityManifest, err
 func (n *KubescapeService) ReconcileSeverityRule(nn ktypes.NamespacedName, rule validationv1.SeverityLimitRule, ignoredCVEs []string, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
 	vr := buildValidationResult(rule, constants.ValidationTypeSeverity)
 
-	zero := 0
+	critical := 0
+	high := 0
+	medium := 0
+	low := 0
+	unknown := 0
+	negligible := 0
 
 	foundVulns := validationv1.SeverityLimitRule{
-		Critical:   &zero,
-		High:       &zero,
-		Medium:     &zero,
-		Low:        &zero,
-		Unknown:    &zero,
-		Negligible: &zero,
+		Critical:   &critical,
+		High:       &high,
+		Medium:     &medium,
+		Low:        &low,
+		Unknown:    &unknown,
+		Negligible: &negligible,
 	}
 
 	uniqueCVEs := make(map[string]bool)

@@ -45,7 +45,11 @@ spec:
                 items:
                   type: string
                 type: array
+              namespace:
+                default: kubescape
+                type: string
               severityLimitRule:
+                description: Global Severity Limit Rule
                 properties:
                   critical:
                     type: integer

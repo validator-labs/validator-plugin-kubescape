@@ -106,7 +106,7 @@ func (r *KubescapeValidatorReconciler) Reconcile(ctx context.Context, req ctrl.R
 		ValidationRuleErrors:  make([]error, 0, vr.Spec.ExpectedResults),
 	}
 
-	kubescape, err := kubevuln.NewAPIServerStorage("kubescape")
+	kubescape, err := kubevuln.NewAPIServerStorage(validator.Spec.Namespace)
 
 	if err != nil {
 		return ctrl.Result{RequeueAfter: time.Second * 120}, errors.New("cannot connect to kubescape api storage server, is kubescape operator installed?")
@@ -168,7 +168,7 @@ func buildValidationResult(validator *kubescapevalidatorv1.KubescapeValidator) *
 		},
 		Spec: vapi.ValidationResultSpec{
 			Plugin:          constants.PluginCode,
-			ExpectedResults: 1,
+			ExpectedResults: validator.Spec.ResultCount(),
 		},
 	}
 }

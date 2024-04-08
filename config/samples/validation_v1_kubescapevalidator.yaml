@@ -1,4 +1,4 @@
-apiVersion: validation.spectrocloud.labs/v1
+apiVersion: validation.spectrocloud.labs/v1alpha1
 kind: KubescapeValidator
 metadata:
   labels:

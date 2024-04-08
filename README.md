@@ -11,11 +11,13 @@ The Kubescape [validator](https://github.com/spectrocloud-labs/validator) plugin
 ## Description
 The Kubescape validator plugin reconciles `KubescapeValidator` custom resources to perform the following validations against your Kubescape API:
 
-1. Specify cluster CVE severity limits
-2. Flag cluster if specific CVE is found within cluster
+1. Define configurable thresholds for Vulnerabilities, by Severity. If the # of CVEs detected exceeds the limit, a failed ValidationResult is generated.
+   - Optionally ignore/omit specific CVEs
+   - CVE details are included in a ValidationResult
+2. Flag specific Vulnerability IDs
+   - Generate a failed ValidationResult if a specific CVE is found in any image
 
 Each `KubescapeValidator` CR is (re)-processed every two minutes to continuously ensure that your network matches the expected state.
-
 
 ## Installation
 

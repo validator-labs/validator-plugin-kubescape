@@ -6,11 +6,12 @@ toolchain go1.21.8
 
 require (
 	github.com/go-logr/logr v1.4.1
-	github.com/kubescape/kubevuln v0.3.3-0.20240326161027-4780cf609919
-	github.com/kubescape/storage v0.0.74
+	github.com/kubescape/kubevuln v0.3.3-0.20240410191622-3699a7569db5
+	github.com/kubescape/storage v0.0.79
 	github.com/onsi/ginkgo/v2 v2.16.0
 	github.com/onsi/gomega v1.31.1
 	github.com/spectrocloud-labs/validator v0.0.38
+	k8s.io/api v0.29.2
 	k8s.io/apimachinery v0.29.3
 	k8s.io/client-go v0.29.2
 	sigs.k8s.io/cluster-api v1.6.2
@@ -205,7 +206,6 @@ require (
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/api v0.29.2 // indirect
 	k8s.io/apiextensions-apiserver v0.29.0 // indirect
 	k8s.io/component-base v0.29.0 // indirect
 	k8s.io/klog/v2 v2.120.1 // indirect

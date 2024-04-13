@@ -498,10 +498,10 @@ github.com/kubescape/go-logger v0.0.22 h1:gle7wH6emOiGv9ljdpVi82pWLQ3jGucrUucvil
 github.com/kubescape/go-logger v0.0.22/go.mod h1:x3HBpZo3cMT/WIdy18BxvVVd5D0e/PWFVk/HiwBNu3g=
 github.com/kubescape/k8s-interface v0.0.162 h1:tIXwuB7073GJV3OPgGMS4kXBh7N709NscVYiePMCvU4=
 github.com/kubescape/k8s-interface v0.0.162/go.mod h1:oF+Yxug3Kpfu9Yr2j63wy7gwswrKXpiqI0mLk/7gF/s=
-github.com/kubescape/kubevuln v0.3.3-0.20240326161027-4780cf609919 h1:3U+36nSmMrPhcIQrEMEBrGPkCoNR+sn/fCS96s80CW0=
-github.com/kubescape/kubevuln v0.3.3-0.20240326161027-4780cf609919/go.mod h1:E1d8RSX2AtcSW28iiKvVJD65HzMrTmFf0DNIS5h/7V8=
-github.com/kubescape/storage v0.0.74 h1:Fdogm2799K6koPKezmcbimDa3+X9rm92BuLvOiJkKP8=
-github.com/kubescape/storage v0.0.74/go.mod h1:ttwWSuxDyckuB014uPHBs23zSdFZx6TMD0MZHlwuw+0=
+github.com/kubescape/kubevuln v0.3.3-0.20240410191622-3699a7569db5 h1:IyyIX2uSvfY+rMm2Q+eGR1mtBw9RD38HkfocI8/PU40=
+github.com/kubescape/kubevuln v0.3.3-0.20240410191622-3699a7569db5/go.mod h1:9gMLobuI8tx4aIvgIq2gbpjkqJcUNWoXtflYnmIo5pg=
+github.com/kubescape/storage v0.0.79 h1:APvBd00/OYjNMvMgOhdiiIFSUzy/wUyLzb92xjcmuqw=
+github.com/kubescape/storage v0.0.79/go.mod h1:ttwWSuxDyckuB014uPHBs23zSdFZx6TMD0MZHlwuw+0=
 github.com/logrusorgru/aurora v0.0.0-20200102142835-e9ef32dff381 h1:bqDmpDG49ZRnB5PcgP0RXtQvnMSgIF14M7CBd2shtXs=
 github.com/logrusorgru/aurora v0.0.0-20200102142835-e9ef32dff381/go.mod h1:7rIyQOR62GCctdiQpZ/zOJlFyk6y+94wXzv6RNZgaR4=
 github.com/lunixbochs/vtclean v1.0.0/go.mod h1:pHhQNgMf3btfWnGBVipUOjRYhoOsdGqdm/+2c2E2WMI=

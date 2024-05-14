@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/spectrocloud-labs/validator-plugin-kubescape/compare/v0.0.1...v0.0.2) (2024-05-14)
+
+
+### Bug Fixes
+
+* leader election rbac ([#28](https://github.com/spectrocloud-labs/validator-plugin-kubescape/issues/28)) ([164d3a8](https://github.com/spectrocloud-labs/validator-plugin-kubescape/commit/164d3a89c8d966000e431e26e061c6a0f6e63082))
+
 ## [0.0.1](https://github.com/spectrocloud-labs/validator-plugin-kubescape/compare/v0.0.1...v0.0.1) (2024-05-01)
 
 

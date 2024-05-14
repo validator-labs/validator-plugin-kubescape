@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/part-of: validator-plugin-kubescape
   {{- include "chart.labels" . | nindent 4 }}
 rules:
-- piGroups:
+- apiGroups:
   - ""
   resources:
   - configmaps

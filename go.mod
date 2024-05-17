@@ -1,4 +1,4 @@
-module github.com/spectrocloud-labs/validator-plugin-kubescape
+module github.com/validator-labs/validator-plugin-kubescape
 
 go 1.22
 
@@ -8,7 +8,7 @@ require (
 	github.com/kubescape/storage v0.0.83
 	github.com/onsi/ginkgo/v2 v2.16.0
 	github.com/onsi/gomega v1.31.1
-	github.com/spectrocloud-labs/validator v0.0.38
+	github.com/validator-labs/validator v0.0.39
 	k8s.io/api v0.29.2
 	k8s.io/apimachinery v0.29.3
 	k8s.io/client-go v0.29.2

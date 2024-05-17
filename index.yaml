@@ -3,6 +3,16 @@ entries:
   validator-plugin-kubescape:
   - apiVersion: v2
     appVersion: 0.0.2
+    created: "2024-05-17T02:32:50.044720915Z"
+    description: Perform Kubescape
+    digest: daa15959531b1115e4cd8a736c2b1f02ff8f23d9eb5eab456ef3ed65566a84eb
+    name: validator-plugin-kubescape
+    type: application
+    urls:
+    - https://validator-labs.github.io/validator-plugin-kubescape/validator-plugin-kubescape-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 0.0.2
     created: "2024-05-14T18:19:48.729925604Z"
     description: Perform Kubescape
     digest: c6f9b0411b1965273d735598f7d1a224c31f3c7907f0facaa3aa98f239d3acd4
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://spectrocloud-labs.github.io/validator-plugin-kubescape/validator-plugin-kubescape-0.0.1.tgz
     version: 0.0.1
-generated: "2024-05-14T18:19:48.728841479Z"
+generated: "2024-05-17T02:32:50.043610742Z"

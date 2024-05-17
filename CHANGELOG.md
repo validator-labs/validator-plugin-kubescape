@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.2...v0.0.3) (2024-05-17)
+
+
+### Other
+
+* migrate from spectrocloud-labs to validator-labs ([#30](https://github.com/validator-labs/validator-plugin-kubescape/issues/30)) ([8dc3d4e](https://github.com/validator-labs/validator-plugin-kubescape/commit/8dc3d4e94d90861d1ada9c27001d3dddaf16cb3e))
+
 ## [0.0.2](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.1...v0.0.2) (2024-05-14)
 
 

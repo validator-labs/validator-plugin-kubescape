@@ -7,8 +7,8 @@ import (
 	"github.com/go-logr/logr"
 	kubevuln "github.com/kubescape/kubevuln/repositories"
 	kubescapev1 "github.com/kubescape/storage/pkg/apis/softwarecomposition/v1beta1"
-	validationv1 "github.com/spectrocloud-labs/validator-plugin-kubescape/api/v1alpha1"
-	"github.com/spectrocloud-labs/validator/pkg/types"
+	validationv1 "github.com/validator-labs/validator-plugin-kubescape/api/v1alpha1"
+	"github.com/validator-labs/validator/pkg/types"
 	ktypes "k8s.io/apimachinery/pkg/types"
 )
 

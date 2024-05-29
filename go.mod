@@ -6,7 +6,7 @@ require (
 	github.com/go-logr/logr v1.4.1
 	github.com/kubescape/kubevuln v0.3.18
 	github.com/kubescape/storage v0.0.83
-	github.com/onsi/ginkgo/v2 v2.17.2
+	github.com/onsi/ginkgo/v2 v2.17.3
 	github.com/onsi/gomega v1.33.1
 	github.com/validator-labs/validator v0.0.39	
 	k8s.io/api v0.29.3

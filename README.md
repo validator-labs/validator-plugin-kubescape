@@ -1,12 +1,12 @@
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/spectrocloud-labs/validator-plugin-kubescape/issues)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/validator-labs/validator-plugin-kubescape/issues)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-![Test](https://github.com/spectrocloud-labs/validator-plugin-kubescape/actions/workflows/test.yaml/badge.svg)
-[![Go Report Card](https://goreportcard.com/badge/github.com/spectrocloud-labs/validator-plugin-kubescape)](https://goreportcard.com/report/github.com/spectrocloud-labs/validator-plugin-kubescape)
-[![codecov](https://codecov.io/gh/spectrocloud-labs/validator-plugin-kubescape/graph/badge.svg?token=QHR08U8SEQ)](https://codecov.io/gh/spectrocloud-labs/validator-plugin-kubescape)
-[![Go Reference](https://pkg.go.dev/badge/github.com/spectrocloud-labs/validator-plugin-kubescape.svg)](https://pkg.go.dev/github.com/spectrocloud-labs/validator-plugin-kubescape)
+![Test](https://github.com/validator-labs/validator-plugin-kubescape/actions/workflows/test.yaml/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/validator-labs/validator-plugin-kubescape)](https://goreportcard.com/report/github.com/validator-labs/validator-plugin-kubescape)
+[![codecov](https://codecov.io/gh/validator-labs/validator-plugin-kubescape/graph/badge.svg?token=QHR08U8SEQ)](https://codecov.io/gh/validator-labs/validator-plugin-kubescape)
+[![Go Reference](https://pkg.go.dev/badge/github.com/validator-labs/validator-plugin-kubescape.svg)](https://pkg.go.dev/github.com/validator-labs/validator-plugin-kubescape)
 
 # validator-plugin-kubescape
-The Kubescape [validator](https://github.com/spectrocloud-labs/validator) plugin validates against Kubescape to provide information regarding vulnerabilities.
+The Kubescape [validator](https://github.com/validator-labs/validator) plugin validates against Kubescape to provide information regarding vulnerabilities.
 
 ## Description
 The Kubescape validator plugin reconciles `KubescapeValidator` custom resources to perform the following validations against your Kubescape API:
@@ -24,7 +24,7 @@ Each `KubescapeValidator` CR is (re)-processed every two minutes to continuously
 The Network validator plugin is meant to be installed by validator (via a ValidatorConfig), but it can also be installed directly as follows:
 
 ```
-helm repo add validator-plugin-kubescape https://spectrocloud-labs.github.io/validator-plugin-kubescape
+helm repo add validator-plugin-kubescape https://validator-labs.github.io/validator-plugin-kubescape
 helm repo update
 helm install validator-plugin-network validator-plugin-network/validator-plugin-kubescape -n validator-plugin-kubescape --create-namespace
 ```

@@ -5,7 +5,7 @@ vars:
   GOARCH:
     command: go
     args: ["env", "GOARCH"]
-  IMAGE: quay.io/spectrocloud-labs/validator-plugin-kubescape
+  IMAGE: quay.io/validator-labs/validator-plugin-kubescape
 
 images:
   validator-plugin-kubescape:

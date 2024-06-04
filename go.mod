@@ -2,7 +2,7 @@ module github.com/validator-labs/validator-plugin-kubescape
 
 go 1.22.0
 
-toolchain go1.22.3
+toolchain go1.22.4
 
 require (
 	github.com/go-logr/logr v1.4.2

@@ -1,12 +1,12 @@
 module github.com/validator-labs/validator-plugin-kubescape
 
-go 1.22.0
+go 1.22.2
 
-toolchain go1.22.3
+toolchain go1.22.4
 
 require (
 	github.com/go-logr/logr v1.4.2
-	github.com/kubescape/kubevuln v0.3.22
+	github.com/kubescape/kubevuln v0.3.25
 	github.com/kubescape/storage v0.0.83
 	github.com/onsi/ginkgo/v2 v2.19.0
 	github.com/onsi/gomega v1.33.1
@@ -24,7 +24,7 @@ require (
 	github.com/anchore/packageurl-go v0.1.1-0.20240312213626-055233e539b4 // indirect
 	github.com/anchore/stereoscope v0.0.3-0.20240423181235-8b297badafd5 // indirect
 	github.com/anchore/syft v1.3.0 // indirect
-	github.com/armosec/armoapi-go v0.0.330 // indirect
+	github.com/armosec/armoapi-go v0.0.416 // indirect
 	github.com/armosec/gojay v1.2.15 // indirect
 	github.com/armosec/utils-go v0.0.57 // indirect
 	github.com/armosec/utils-k8s-go v0.0.26 // indirect

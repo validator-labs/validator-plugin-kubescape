@@ -161,3 +161,7 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
+
+// This module is a transitive dependency, has a vulnerability, and is archived. It has this
+// recommended replacement.
+replace gopkg.in/square/go-jose.v2 => gopkg.in/go-jose/go-jose.v2 v2.6.3

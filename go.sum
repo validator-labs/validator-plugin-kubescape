@@ -99,8 +99,8 @@ github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmV
 github.com/armon/go-metrics v0.3.10/go.mod h1:4O98XIr/9W0sxpJ8UaYkvjk10Iff7SnFrb4QAOwNTFc=
 github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 github.com/armon/go-radix v1.0.0/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
-github.com/armosec/armoapi-go v0.0.330 h1:kvyLshJ3VBqWxDO/hvlpVU1DNsrmkb5M0oStw+Uwxb8=
-github.com/armosec/armoapi-go v0.0.330/go.mod h1:6VYIw1hoNU3dTXKckMHNHhzhhPTMXDHtv5AFxvG4Q+U=
+github.com/armosec/armoapi-go v0.0.416 h1:mAcrvaYKbEMbPptaqAYKF6tC4Y3cPs7sQFEiVc7rM/s=
+github.com/armosec/armoapi-go v0.0.416/go.mod h1:U73HFBiAv03owOtIDYWZrh9NA8+C/MIr/lF5H5fHVic=
 github.com/armosec/gojay v1.2.15 h1:sSB2vnAvacUNkw9nzUYZKcPzhJOyk6/5LK2JCNdmoZY=
 github.com/armosec/gojay v1.2.15/go.mod h1:vzVAaay2TWJAngOpxu8aqLbye9jMgoKleuAOK+xsOts=
 github.com/armosec/utils-go v0.0.57 h1:0RaqexK+t7HeKWfldBv2C1JiLLGuUx9FP0DGWDNRJpg=
@@ -447,8 +447,8 @@ github.com/kubescape/go-logger v0.0.22 h1:gle7wH6emOiGv9ljdpVi82pWLQ3jGucrUucvil
 github.com/kubescape/go-logger v0.0.22/go.mod h1:x3HBpZo3cMT/WIdy18BxvVVd5D0e/PWFVk/HiwBNu3g=
 github.com/kubescape/k8s-interface v0.0.162 h1:tIXwuB7073GJV3OPgGMS4kXBh7N709NscVYiePMCvU4=
 github.com/kubescape/k8s-interface v0.0.162/go.mod h1:oF+Yxug3Kpfu9Yr2j63wy7gwswrKXpiqI0mLk/7gF/s=
-github.com/kubescape/kubevuln v0.3.22 h1:Qn2k7P1ySUnYbjk6A4o2RzV3D26LmvFB6IWlQinVXfA=
-github.com/kubescape/kubevuln v0.3.22/go.mod h1:iU5V6q0xwyXOR6BH/did/ue8yPYo1oXRlUj6Qw203aI=
+github.com/kubescape/kubevuln v0.3.25 h1:h2fH5afNtsDiHFNVT19/Xw1pzXCfjXf1fA/22I/Iywo=
+github.com/kubescape/kubevuln v0.3.25/go.mod h1:tdTVFWlLStCH06j6ifFvlJivrENkVGVXR8JbRbDrF0o=
 github.com/kubescape/storage v0.0.83 h1:HOxw54hs8jt6RjGcTfXUXDOrKULWLr7CxmP3ptMM/8g=
 github.com/kubescape/storage v0.0.83/go.mod h1:GkKtU3/Y//lt/ifEwf6LqoHEC0uq7IQraqsFYnpAJI8=
 github.com/lunixbochs/vtclean v1.0.0/go.mod h1:pHhQNgMf3btfWnGBVipUOjRYhoOsdGqdm/+2c2E2WMI=

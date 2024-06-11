@@ -1,5 +1,40 @@
 # Changelog
 
+## [0.0.4](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.3...v0.0.4) (2024-06-11)
+
+
+### Bug Fixes
+
+* **deps:** update kubernetes packages to v0.30.1 ([#6](https://github.com/validator-labs/validator-plugin-kubescape/issues/6)) ([ac6621e](https://github.com/validator-labs/validator-plugin-kubescape/commit/ac6621ebec8e5d9657433fe3b96838215df7c01a))
+* **deps:** update module github.com/go-logr/logr to v1.4.2 ([#42](https://github.com/validator-labs/validator-plugin-kubescape/issues/42)) ([1144675](https://github.com/validator-labs/validator-plugin-kubescape/commit/114467599d8b65c771c5a6d1b71c2ec8dd340b85))
+* **deps:** update module github.com/kubescape/kubevuln to v0.3.18 ([#15](https://github.com/validator-labs/validator-plugin-kubescape/issues/15)) ([4e51614](https://github.com/validator-labs/validator-plugin-kubescape/commit/4e51614ad90850189db074d16a0250d455f99035))
+* **deps:** update module github.com/kubescape/kubevuln to v0.3.22 ([#35](https://github.com/validator-labs/validator-plugin-kubescape/issues/35)) ([326bf43](https://github.com/validator-labs/validator-plugin-kubescape/commit/326bf4390722e4c10e49099a03aac9f70c5b1769))
+* **deps:** update module github.com/kubescape/kubevuln to v0.3.25 ([#47](https://github.com/validator-labs/validator-plugin-kubescape/issues/47)) ([94ab793](https://github.com/validator-labs/validator-plugin-kubescape/commit/94ab793238f4a065bb9a65813b57a2563c999344))
+* **deps:** update module github.com/kubescape/storage to v0.0.85 ([#43](https://github.com/validator-labs/validator-plugin-kubescape/issues/43)) ([bf48573](https://github.com/validator-labs/validator-plugin-kubescape/commit/bf485737d04b5eb9c92305001aba9565a59beb59))
+* **deps:** update module github.com/onsi/ginkgo/v2 to v2.17.3 ([#13](https://github.com/validator-labs/validator-plugin-kubescape/issues/13)) ([88d02dd](https://github.com/validator-labs/validator-plugin-kubescape/commit/88d02dd4751cccd34b91aee4dbe83842be6e5de4))
+* **deps:** update module github.com/onsi/ginkgo/v2 to v2.19.0 ([#37](https://github.com/validator-labs/validator-plugin-kubescape/issues/37)) ([863cc5f](https://github.com/validator-labs/validator-plugin-kubescape/commit/863cc5f4147afd69afc1748df6c41167dc8b88af))
+* **deps:** update module github.com/onsi/gomega to v1.33.1 ([#14](https://github.com/validator-labs/validator-plugin-kubescape/issues/14)) ([ca03daa](https://github.com/validator-labs/validator-plugin-kubescape/commit/ca03daa37a0cbfa8f099c22080592fbebb25fc1e))
+* **deps:** update module github.com/validator-labs/validator to v0.0.41 ([#44](https://github.com/validator-labs/validator-plugin-kubescape/issues/44)) ([fa6b6ba](https://github.com/validator-labs/validator-plugin-kubescape/commit/fa6b6ba6561056c745d375c5b009474568e8605f))
+* **deps:** update module github.com/validator-labs/validator to v0.0.42 ([#52](https://github.com/validator-labs/validator-plugin-kubescape/issues/52)) ([5459604](https://github.com/validator-labs/validator-plugin-kubescape/commit/5459604400118b0ba6074df0fe38bd55aa5b12dd))
+* **deps:** update module sigs.k8s.io/cluster-api to v1.7.2 ([#7](https://github.com/validator-labs/validator-plugin-kubescape/issues/7)) ([ca981d2](https://github.com/validator-labs/validator-plugin-kubescape/commit/ca981d21e7ac44efa36aec2af2f8d0855aeec392))
+* **deps:** update module sigs.k8s.io/cluster-api to v1.7.3 ([#53](https://github.com/validator-labs/validator-plugin-kubescape/issues/53)) ([8950f34](https://github.com/validator-labs/validator-plugin-kubescape/commit/8950f343d9997078041839f61b48197a2fa622d5))
+* **deps:** update module sigs.k8s.io/controller-runtime to v0.18.4 ([#50](https://github.com/validator-labs/validator-plugin-kubescape/issues/50)) ([fbe1e36](https://github.com/validator-labs/validator-plugin-kubescape/commit/fbe1e36ecb1dd50c8f500441eb0aad473eb7742f))
+
+
+### Other
+
+* **deps:** pin googleapis/release-please-action action to f3969c0 ([#33](https://github.com/validator-labs/validator-plugin-kubescape/issues/33)) ([62f2d2f](https://github.com/validator-labs/validator-plugin-kubescape/commit/62f2d2f881c34890cc78748fea3eeb9b4dfbccc3))
+* **deps:** update actions/checkout digest to a5ac7e5 ([#34](https://github.com/validator-labs/validator-plugin-kubescape/issues/34)) ([5242581](https://github.com/validator-labs/validator-plugin-kubescape/commit/52425814a26103d522f82cabe6e2def8b5f37671))
+* **deps:** update actions/setup-go digest to cdcb360 ([#38](https://github.com/validator-labs/validator-plugin-kubescape/issues/38)) ([75fdbed](https://github.com/validator-labs/validator-plugin-kubescape/commit/75fdbedd200779d41717721ed8f369edc853aabd))
+* **deps:** update anchore/sbom-action action to v0.15.11 ([#23](https://github.com/validator-labs/validator-plugin-kubescape/issues/23)) ([18db034](https://github.com/validator-labs/validator-plugin-kubescape/commit/18db034442e31125f6dba7d2163a6da9c3646203))
+* **deps:** update anchore/sbom-action action to v0.16.0 ([#36](https://github.com/validator-labs/validator-plugin-kubescape/issues/36)) ([aba05a9](https://github.com/validator-labs/validator-plugin-kubescape/commit/aba05a9b7364717ba8652c4960a512374880970c))
+* **deps:** update codecov/codecov-action digest to 125fc84 ([#39](https://github.com/validator-labs/validator-plugin-kubescape/issues/39)) ([b83a720](https://github.com/validator-labs/validator-plugin-kubescape/commit/b83a720b94470b8a3a6328459ee3cca9320ca4b1))
+* **deps:** update docker/login-action digest to 0d4c9c5 ([#40](https://github.com/validator-labs/validator-plugin-kubescape/issues/40)) ([2605655](https://github.com/validator-labs/validator-plugin-kubescape/commit/260565540657c987f0e7299494c0aecbf1662329))
+* **deps:** update docker/setup-buildx-action digest to d70bba7 ([#22](https://github.com/validator-labs/validator-plugin-kubescape/issues/22)) ([0b1f3d9](https://github.com/validator-labs/validator-plugin-kubescape/commit/0b1f3d966af1fe765d33efb7c1bf642e7c5953c4))
+* **deps:** update gcr.io/kubebuilder/kube-rbac-proxy docker tag to v0.16.0 ([#11](https://github.com/validator-labs/validator-plugin-kubescape/issues/11)) ([8227a36](https://github.com/validator-labs/validator-plugin-kubescape/commit/8227a3682f5ce43446fe0d31140a39fa82ca7f9c))
+* **deps:** update helm/kind-action action to v1.10.0 ([#25](https://github.com/validator-labs/validator-plugin-kubescape/issues/25)) ([69e8a63](https://github.com/validator-labs/validator-plugin-kubescape/commit/69e8a632a4fd6ca4a6024434a6c8e289b2799c66))
+* **deps:** update softprops/action-gh-release digest to 69320db ([#41](https://github.com/validator-labs/validator-plugin-kubescape/issues/41)) ([374afe4](https://github.com/validator-labs/validator-plugin-kubescape/commit/374afe47151b4fc19fa5ef919f017be5ff640ca4))
+
 ## [0.0.3](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.2...v0.0.3) (2024-05-17)
 
 

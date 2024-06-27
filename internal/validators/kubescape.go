@@ -38,8 +38,7 @@ func (n *KubescapeService) Manifests() ([]kubescapev1.VulnerabilityManifest, err
 		return nil, err
 	}
 
-	var manifests []kubescapev1.VulnerabilityManifest
-
+	manifests := make([]kubescapev1.VulnerabilityManifest, 0, len(manifestList.Items))
 	for _, v := range manifestList.Items {
 		manifest, err := n.API.StorageClient.VulnerabilityManifests("kubescape").Get(context.Background(), v.Name, metav1.GetOptions{})
 		if err != nil {

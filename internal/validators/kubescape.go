@@ -54,7 +54,7 @@ func (n *KubescapeService) Manifests() ([]kubescapev1.VulnerabilityManifest, err
 	return manifests, nil
 }
 
-// ReconcileSeverityRule reconciles a severity limit.
+// ReconcileSeverityRule reconciles a severity limit rule.
 func (n *KubescapeService) ReconcileSeverityRule(rule validationv1.SeverityLimitRule, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
 	vr := buildValidationResult(rule, constants.ValidationTypeSeverity)
 

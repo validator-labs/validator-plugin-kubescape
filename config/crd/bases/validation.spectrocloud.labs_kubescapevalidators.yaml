@@ -43,11 +43,7 @@ spec:
               flaggedCVERule:
                 description: Rule for Flagged CVEs
                 items:
-                  type: string
-                type: array
-              ignoredCVERule:
-                description: Global Ignore CVEs
-                items:
+                  description: FlaggedCVE is a flagged CVE rule.
                   type: string
                 type: array
               namespace:

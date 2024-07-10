@@ -1,3 +1,4 @@
+// Package validators handles Kubescape validation rule reconciliation.
 package validators
 
 import (
@@ -13,25 +14,27 @@ import (
 	"github.com/validator-labs/validator/pkg/types"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	ktypes "k8s.io/apimachinery/pkg/types"
 )
 
 type kubescapeRule interface {
 	Name() string
 }
 
+// KubescapeService retrieves vulnerability data and uses it to reconcile Kubescape rules.
 type KubescapeService struct {
 	Log logr.Logger
 	API *kubevuln.APIServerStore
 }
 
-func NewKubescapeService(log logr.Logger, kvApi *kubevuln.APIServerStore) *KubescapeService {
+// NewKubescapeService creates a KubescapeService.
+func NewKubescapeService(log logr.Logger, kvAPI *kubevuln.APIServerStore) *KubescapeService {
 	return &KubescapeService{
 		Log: log,
-		API: kvApi,
+		API: kvAPI,
 	}
 }
 
+// Manifests retrieves vulnerability data.
 func (n *KubescapeService) Manifests() ([]kubescapev1.VulnerabilityManifest, error) {
 	manifestList, err := n.API.StorageClient.VulnerabilityManifests("kubescape").List(context.Background(), metav1.ListOptions{})
 	if err != nil {
@@ -51,7 +54,8 @@ func (n *KubescapeService) Manifests() ([]kubescapev1.VulnerabilityManifest, err
 	return manifests, nil
 }
 
-func (n *KubescapeService) ReconcileSeverityRule(nn ktypes.NamespacedName, rule validationv1.SeverityLimitRule, ignoredCVEs []string, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
+// ReconcileSeverityRule reconciles a severity limit rule.
+func (n *KubescapeService) ReconcileSeverityRule(rule validationv1.SeverityLimitRule, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
 	vr := buildValidationResult(rule, constants.ValidationTypeSeverity)
 
 	critical := 0
@@ -145,7 +149,8 @@ func (n *KubescapeService) ReconcileSeverityRule(nn ktypes.NamespacedName, rule 
 	return vr, nil
 }
 
-func (n *KubescapeService) ReconcileFlaggedCVERule(nn ktypes.NamespacedName, cve validationv1.FlaggedCVE, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
+// ReconcileFlaggedCVERule reconciles a flagged CVE rule.
+func (n *KubescapeService) ReconcileFlaggedCVERule(cve validationv1.FlaggedCVE, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
 	vr := buildValidationResult(cve, constants.ValidationTypeSeverity)
 
 	count := 0
@@ -163,7 +168,7 @@ func (n *KubescapeService) ReconcileFlaggedCVERule(nn ktypes.NamespacedName, cve
 				}
 
 				checkedImages[imageTag] = true
-				count += 1
+				count++
 
 				vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("%s found in %s", match.Vulnerability.ID, imageTag))
 				vr.Condition.Failures = append(vr.Condition.Failures, imageTag)

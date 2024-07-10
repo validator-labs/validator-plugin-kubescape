@@ -9,7 +9,6 @@ import (
 	kubescapev1 "github.com/kubescape/storage/pkg/apis/softwarecomposition/v1beta1"
 	validationv1 "github.com/validator-labs/validator-plugin-kubescape/api/v1alpha1"
 	"github.com/validator-labs/validator/pkg/types"
-	ktypes "k8s.io/apimachinery/pkg/types"
 )
 
 func TestKubescapeService_ReconcileSeverityRule(t *testing.T) {
@@ -18,10 +17,8 @@ func TestKubescapeService_ReconcileSeverityRule(t *testing.T) {
 		API *kubevuln.APIServerStore
 	}
 	type args struct {
-		nn          ktypes.NamespacedName
-		rule        validationv1.SeverityLimitRule
-		ignoredCVEs []string
-		manifests   []kubescapev1.VulnerabilityManifest
+		rule      validationv1.SeverityLimitRule
+		manifests []kubescapev1.VulnerabilityManifest
 	}
 	tests := []struct {
 		name    string
@@ -38,7 +35,7 @@ func TestKubescapeService_ReconcileSeverityRule(t *testing.T) {
 				Log: tt.fields.Log,
 				API: tt.fields.API,
 			}
-			got, err := n.ReconcileSeverityRule(tt.args.nn, tt.args.rule, tt.args.ignoredCVEs, tt.args.manifests)
+			got, err := n.ReconcileSeverityRule(tt.args.rule, tt.args.manifests)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("KubescapeService.ReconcileSeverityRule() error = %v, wantErr %v", err, tt.wantErr)
 				return

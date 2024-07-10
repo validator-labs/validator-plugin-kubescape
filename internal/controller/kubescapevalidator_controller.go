@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Package controller defines a controller for reconciling KubescapeValidator objects.
 package controller
 
 import (
@@ -63,6 +64,8 @@ type KubescapeValidatorReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.15.0/pkg/reconcile
 
+// Reconcile reconciles each rule found in each KubescapeValidator in the cluster and creates
+// ValidationResults accordingly.
 func (r *KubescapeValidatorReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	l := r.Log.V(0).WithValues("name", req.Name, "namespace", req.Namespace)
 	l.Info("Reconciling Kubescape Validator")
@@ -120,7 +123,7 @@ func (r *KubescapeValidatorReconciler) Reconcile(ctx context.Context, req ctrl.R
 	}
 
 	// Reconcile Severity Rule
-	vrr, err := kubescapeService.ReconcileSeverityRule(nn, validator.Spec.SeverityLimitRule, validator.Spec.IgnoredCVERule, manifests)
+	vrr, err := kubescapeService.ReconcileSeverityRule(validator.Spec.SeverityLimitRule, manifests)
 	if err != nil {
 		l.Error(err, "failed to reconcile Severity rule")
 	}
@@ -129,7 +132,7 @@ func (r *KubescapeValidatorReconciler) Reconcile(ctx context.Context, req ctrl.R
 	// Reconcile Flagged CVE Rule
 	for _, rule := range validator.Spec.FlaggedCVERule {
 		fmt.Println("ahash")
-		vrr, err := kubescapeService.ReconcileFlaggedCVERule(nn, rule, manifests)
+		vrr, err := kubescapeService.ReconcileFlaggedCVERule(rule, manifests)
 		if err != nil {
 			l.Error(err, "failed to reconcile Severity rule")
 		}

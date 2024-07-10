@@ -16,7 +16,3 @@ spec:
   # Rule to flag CVEs
   flaggedCVERule:
     - "CVE-2022-21698"
-  
-  # Global rule to ignore specified CVEs
-  ignoredCVERule:
-    - "CVE-xxxx-xxxx"

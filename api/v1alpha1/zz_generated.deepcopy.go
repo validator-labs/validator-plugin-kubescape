@@ -87,11 +87,6 @@ func (in *KubescapeValidatorList) DeepCopyObject() runtime.Object {
 func (in *KubescapeValidatorSpec) DeepCopyInto(out *KubescapeValidatorSpec) {
 	*out = *in
 	in.SeverityLimitRule.DeepCopyInto(&out.SeverityLimitRule)
-	if in.IgnoredCVERule != nil {
-		in, out := &in.IgnoredCVERule, &out.IgnoredCVERule
-		*out = make([]string, len(*in))
-		copy(*out, *in)
-	}
 	if in.FlaggedCVERule != nil {
 		in, out := &in.FlaggedCVERule, &out.FlaggedCVERule
 		*out = make([]FlaggedCVE, len(*in))

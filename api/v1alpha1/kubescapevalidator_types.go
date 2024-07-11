@@ -29,13 +29,28 @@ import (
 type KubescapeValidatorSpec struct {
 	//+kubebuilder:default=kubescape
 	Namespace string `json:"namespace,omitempty" yaml:"namespace,omitempty"`
-	// Global Severity Limit Rule
-	SeverityLimitRule SeverityLimitRule `json:"severityLimitRule,omitempty" yaml:"severityLimitRule,omitempty"`
-	// Rule for Flagged CVEs
-	FlaggedCVERule []FlaggedCVE `json:"flaggedCVERule,omitempty" yaml:"flaggedCVERule,omitempty"`
+	// global ignored CVEs
+	IgnoredCVEs []IgnoredCVE `json:"ignoredCVEs,omitempty" yaml:"ignoredCVERule,omitempty"`
+	// +kubebuilder:validation:MaxItems=5
+	// +kubebuilder:validation:XValidation:message="KubescapeRules must have a unique RuleName",rule="self.all(e, size(self.filter(x, x.name == e.name)) == 1)"
+	SeverityLimitRules []SeverityLimitRule `json:"kubescapeRules,omitempty" yaml:"kubescapeRules,omitempty"`
+
+	FlaggedCVERules []FlaggedCVE `json:"flaggedCVEs,omitempty" yaml:"flaggedCVERule,omitempty"`
 }
 
-// FlaggedCVE is a flagged CVE rule.
+type SeverityLimitRule struct {
+	// Global Severity Limit Rule
+	SeverityLimits SeverityLimits `json:"severityLimitRule,omitempty" yaml:"severityLimitRule,omitempty"`
+	// Global Ignore CVEs
+	IgnoredCVEs []IgnoredCVE `json:"ignoredCVEs,omitempty" yaml:"ignoredCVERule,omitempty"`
+	// Rule for Flagged CVEs
+}
+
+func (r SeverityLimitRule) Name() string {
+	return "SeverityLimitRule"
+}
+
+type IgnoredCVE string
 type FlaggedCVE string
 
 // Name returns the formatted name of the flagged CVE.
@@ -43,20 +58,20 @@ func (r FlaggedCVE) Name() string {
 	return fmt.Sprintf("FLAG-%s", string(r))
 }
 
+func (r IgnoredCVE) Name() string {
+	return fmt.Sprintf("IGNORED-%s", string(r))
+}
+
 // ResultCount returns the number of validation results expected for an KubescapeValidatorSpec.
 func (s KubescapeValidatorSpec) ResultCount() int {
 	count := 0
-	if s.SeverityLimitRule != (SeverityLimitRule{}) {
-		count++
+	if s.SeverityLimitRules != nil {
+		count += len(s.SeverityLimitRules)
 	}
-	count += len(s.FlaggedCVERule)
-
 	return count
 }
 
-// SeverityLimitRule verifies that the number of vulnerabilities of each severity level does not
-// exceed the specified limit.
-type SeverityLimitRule struct {
+type SeverityLimits struct {
 	Critical   *int `json:"critical,omitempty"`
 	High       *int `json:"high,omitempty"`
 	Medium     *int `json:"medium,omitempty"`
@@ -65,9 +80,8 @@ type SeverityLimitRule struct {
 	Unknown    *int `json:"unknown,omitempty"`
 }
 
-// Name is the name of all severity limit rules.
-func (r SeverityLimitRule) Name() string {
-	return "SeverityLimitRule"
+func (r SeverityLimits) Name() string {
+	return "SeverityLimits"
 }
 
 // KubescapeValidatorStatus defines the observed state of KubescapeValidator

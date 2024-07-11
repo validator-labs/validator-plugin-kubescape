@@ -4,6 +4,7 @@ package validators
 import (
 	"context"
 	"fmt"
+	"slices"
 
 	"github.com/go-logr/logr"
 	kubevuln "github.com/kubescape/kubevuln/repositories"
@@ -34,28 +35,25 @@ func NewKubescapeService(log logr.Logger, kvAPI *kubevuln.APIServerStore) *Kubes
 	}
 }
 
-// Manifests retrieves vulnerability data.
-func (n *KubescapeService) Manifests() ([]kubescapev1.VulnerabilityManifest, error) {
-	manifestList, err := n.API.StorageClient.VulnerabilityManifests("kubescape").List(context.Background(), metav1.ListOptions{})
+func (n *KubescapeService) Manifests(namespace string) ([]kubescapev1.VulnerabilityManifest, error) {
+	manifestList, err := n.API.StorageClient.VulnerabilityManifests(namespace).List(context.Background(), metav1.ListOptions{})
 	if err != nil {
 		return nil, err
 	}
 
 	manifests := make([]kubescapev1.VulnerabilityManifest, 0, len(manifestList.Items))
 	for _, v := range manifestList.Items {
-		manifest, err := n.API.StorageClient.VulnerabilityManifests("kubescape").Get(context.Background(), v.Name, metav1.GetOptions{})
+		manifest, err := n.API.StorageClient.VulnerabilityManifests(namespace).Get(context.Background(), v.Name, metav1.GetOptions{})
 		if err != nil {
 			return nil, err
 		}
-
 		manifests = append(manifests, *manifest)
 	}
 
 	return manifests, nil
 }
 
-// ReconcileSeverityRule reconciles a severity limit rule.
-func (n *KubescapeService) ReconcileSeverityRule(rule validationv1.SeverityLimitRule, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
+func (n *KubescapeService) ReconcileSeverityRule(rule validationv1.SeverityLimitRule, ignoredCVEs []validationv1.IgnoredCVE, manifests []kubescapev1.VulnerabilityManifest) (*types.ValidationRuleResult, error) {
 	vr := buildValidationResult(rule, constants.ValidationTypeSeverity)
 
 	critical := 0
@@ -65,7 +63,7 @@ func (n *KubescapeService) ReconcileSeverityRule(rule validationv1.SeverityLimit
 	unknown := 0
 	negligible := 0
 
-	foundVulns := validationv1.SeverityLimitRule{
+	foundVulns := validationv1.SeverityLimits{
 		Critical:   &critical,
 		High:       &high,
 		Medium:     &medium,
@@ -80,6 +78,11 @@ func (n *KubescapeService) ReconcileSeverityRule(rule validationv1.SeverityLimit
 		for _, match := range manifest.Spec.Payload.Matches {
 
 			if _, ok := uniqueCVEs[match.Vulnerability.ID]; ok {
+				continue
+			}
+
+			// ignore global and rule scoped CVE
+			if slices.Contains(ignoredCVEs, validationv1.IgnoredCVE(match.Vulnerability.ID)) || slices.Contains(rule.IgnoredCVEs, validationv1.IgnoredCVE(match.Vulnerability.ID)) {
 				continue
 			}
 
@@ -103,43 +106,43 @@ func (n *KubescapeService) ReconcileSeverityRule(rule validationv1.SeverityLimit
 	}
 
 	var diff int
-	if rule.Critical != nil && *foundVulns.Critical > *rule.Critical {
+	if rule.SeverityLimits.Critical != nil && *foundVulns.Critical > *rule.SeverityLimits.Critical {
 		vr.Condition.Status = v1.ConditionFalse
-		diff = *foundVulns.Critical - *rule.Critical
-		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d unique Critical severity vulnerabilities. %d higher then %d limit.", *foundVulns.Critical, diff, *rule.Critical))
+		diff = *foundVulns.Critical - *rule.SeverityLimits.Critical
+		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d unique Critical severity vulnerabilities. %d higher then %d limit.", *foundVulns.Critical, diff, *rule.SeverityLimits.Critical))
 	}
 
-	if rule.High != nil && *foundVulns.High > *rule.High {
+	if rule.SeverityLimits.High != nil && *foundVulns.High > *rule.SeverityLimits.High {
 		vr.Condition.Status = v1.ConditionFalse
-		diff = *foundVulns.High - *rule.High
-		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d High severity vulnerabilities. %d higher then %d limit.", *foundVulns.High, diff, *rule.High))
+		diff = *foundVulns.High - *rule.SeverityLimits.High
+		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d High severity vulnerabilities. %d higher then %d limit.", *foundVulns.High, diff, *rule.SeverityLimits.High))
 	}
 
-	if rule.Medium != nil && *foundVulns.Medium > *rule.Medium {
+	if rule.SeverityLimits.Medium != nil && *foundVulns.Medium > *rule.SeverityLimits.Medium {
 		vr.Condition.Status = v1.ConditionFalse
-		diff = *foundVulns.Medium - *rule.Medium
-		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Medium severity vulnerabilities. %d higher then %d limit.", *foundVulns.Medium, diff, *rule.Medium))
-
-	}
-
-	if rule.Low != nil && *foundVulns.Low > *rule.Low {
-		vr.Condition.Status = v1.ConditionFalse
-		diff = *foundVulns.Low - *rule.Low
-		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Low severity vulnerabilities. %d higher then %d limit.", *foundVulns.Low, diff, *rule.Low))
+		diff = *foundVulns.Medium - *rule.SeverityLimits.Medium
+		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Medium severity vulnerabilities. %d higher then %d limit.", *foundVulns.Medium, diff, *rule.SeverityLimits.Medium))
 
 	}
 
-	if rule.Unknown != nil && *foundVulns.Unknown > *rule.Unknown {
+	if rule.SeverityLimits.Low != nil && *foundVulns.Low > *rule.SeverityLimits.Low {
 		vr.Condition.Status = v1.ConditionFalse
-		diff = *foundVulns.Unknown - *rule.Unknown
-		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Unknown severity vulnerabilities. %d higher then %d limit.", *foundVulns.Unknown, diff, *rule.Unknown))
+		diff = *foundVulns.Low - *rule.SeverityLimits.Low
+		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Low severity vulnerabilities. %d higher then %d limit.", *foundVulns.Low, diff, *rule.SeverityLimits.Low))
 
 	}
 
-	if rule.Negligible != nil && *foundVulns.Negligible > *rule.Negligible {
+	if rule.SeverityLimits.Unknown != nil && *foundVulns.Unknown > *rule.SeverityLimits.Unknown {
 		vr.Condition.Status = v1.ConditionFalse
-		diff = *foundVulns.Negligible - *rule.Negligible
-		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Negligible severity vulnerabilities. %d higher then %d limit.", *foundVulns.Negligible, diff, *rule.Negligible))
+		diff = *foundVulns.Unknown - *rule.SeverityLimits.Unknown
+		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Unknown severity vulnerabilities. %d higher then %d limit.", *foundVulns.Unknown, diff, *rule.SeverityLimits.Unknown))
+
+	}
+
+	if rule.SeverityLimits.Negligible != nil && *foundVulns.Negligible > *rule.SeverityLimits.Negligible {
+		vr.Condition.Status = v1.ConditionFalse
+		diff = *foundVulns.Negligible - *rule.SeverityLimits.Negligible
+		vr.Condition.Details = append(vr.Condition.Details, fmt.Sprintf("Found %d Negligible severity vulnerabilities. %d higher then %d limit.", *foundVulns.Negligible, diff, *rule.SeverityLimits.Negligible))
 	}
 
 	if vr.Condition.Status == v1.ConditionFalse {

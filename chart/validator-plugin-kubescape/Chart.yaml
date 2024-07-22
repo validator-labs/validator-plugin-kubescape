@@ -1,6 +1,6 @@
 apiVersion: v2
 name: validator-plugin-kubescape
-description: Perform Kubescape
+description: validator-plugin-kubescape executes kubescape against your Kubernetes cluster and validates the results.
 type: application
 version: 0.0.3
 appVersion: 0.0.2

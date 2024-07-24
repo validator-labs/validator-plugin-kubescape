@@ -687,8 +687,8 @@ github.com/uptrace/opentelemetry-go-extra/otelzap v0.2.2 h1:uyrW06oJi4iWvhjPLVfk
 github.com/uptrace/opentelemetry-go-extra/otelzap v0.2.2/go.mod h1:PMAs2dNxP55lgt6xu0if+Jasm6s+Xpmqn6ev1NyDfnI=
 github.com/uptrace/uptrace-go v1.18.0 h1:RY15qy19C0irbe2UCxQbjenk8WyUdvUV756R9ZpqCGI=
 github.com/uptrace/uptrace-go v1.18.0/go.mod h1:BUW3sFgEyRmZIxts4cv6TGaJnWAW95uW78GIiSdChOQ=
-github.com/validator-labs/validator v0.0.48 h1:Vngvw9Y0B3B5ea8LqHgxBKw8dOS8ZK8z2zyzMq2rs/8=
-github.com/validator-labs/validator v0.0.48/go.mod h1:YxUKAXuSR6fIAi7WCQV/Wbrzf9szf8aCTeYWEA+JyIY=
+github.com/validator-labs/validator v0.0.49 h1:gqtiVFBdLHNJysGx7MDx09uYJ7aLZ5x0bHgFmN9bVhM=
+github.com/validator-labs/validator v0.0.49/go.mod h1:YxUKAXuSR6fIAi7WCQV/Wbrzf9szf8aCTeYWEA+JyIY=
 github.com/viant/assertly v0.4.8/go.mod h1:aGifi++jvCrUaklKEKT0BU95igDNaqkvz+49uaYMPRU=
 github.com/viant/toolbox v0.24.0/go.mod h1:OxMCG57V0PXuIP2HNQrtJf2CjqdmbrOx5EkMILuUhzM=
 github.com/wagoodman/go-partybus v0.0.0-20230516145632-8ccac152c651 h1:jIVmlAFIqV3d+DOxazTR9v+zgj8+VYuQBzPgBZvWBHA=

@@ -3,6 +3,17 @@ entries:
   validator-plugin-kubescape:
   - apiVersion: v2
     appVersion: 0.0.2
+    created: "2024-07-26T18:38:15.377599745Z"
+    description: validator-plugin-kubescape executes kubescape against your Kubernetes
+      cluster and validates the results.
+    digest: d08c379d98129f1c45bcee82356d8709ec16124737f34533eb7095a9088b1dd2
+    name: validator-plugin-kubescape
+    type: application
+    urls:
+    - https://validator-labs.github.io/validator-plugin-kubescape/validator-plugin-kubescape-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 0.0.2
     created: "2024-05-17T02:32:50.044720915Z"
     description: Perform Kubescape
     digest: daa15959531b1115e4cd8a736c2b1f02ff8f23d9eb5eab456ef3ed65566a84eb
@@ -31,4 +42,4 @@ entries:
     urls:
     - https://spectrocloud-labs.github.io/validator-plugin-kubescape/validator-plugin-kubescape-0.0.1.tgz
     version: 0.0.1
-generated: "2024-05-17T02:32:50.043610742Z"
+generated: "2024-07-26T18:38:15.376404286Z"

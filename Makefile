@@ -10,3 +10,11 @@ CHART_NAME=validator-plugin-kubescape
 .PHONY: dev
 dev:
 	devspace dev -n validator
+
+# Static Analysis / CI
+
+chartCrds = chart/validator-plugin-kubescape/crds/validation.spectrocloud.labs_kubescapevalidators.yaml
+
+reviewable-ext:
+	rm $(chartCrds)
+	cp config/crd/bases/validation.spectrocloud.labs_kubescapevalidators.yaml $(chartCrds)

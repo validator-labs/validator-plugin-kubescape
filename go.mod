@@ -8,7 +8,7 @@ require (
 	github.com/kubescape/storage v0.0.90
 	github.com/onsi/ginkgo/v2 v2.19.1
 	github.com/onsi/gomega v1.34.1
-	github.com/validator-labs/validator v0.0.51
+	github.com/validator-labs/validator v0.1.0
 	k8s.io/api v0.30.3
 	k8s.io/apimachinery v0.30.3
 	k8s.io/client-go v0.30.3

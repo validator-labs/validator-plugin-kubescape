@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.0.5](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.4...v0.0.5) (2024-08-02)
+
+
+### Other
+
+* add hook to install validator crds in devspace ([#78](https://github.com/validator-labs/validator-plugin-kubescape/issues/78)) ([450a792](https://github.com/validator-labs/validator-plugin-kubescape/commit/450a792e17ca77d4cee49a132c182104341ee3c1))
+
+
+### Dependency Updates
+
+* **deps:** update module github.com/onsi/ginkgo/v2 to v2.19.1 ([#73](https://github.com/validator-labs/validator-plugin-kubescape/issues/73)) ([65e4cb7](https://github.com/validator-labs/validator-plugin-kubescape/commit/65e4cb7a228bdb9ec97e7daa772f6c81465508ac))
+* **deps:** update module github.com/onsi/gomega to v1.34.1 ([#77](https://github.com/validator-labs/validator-plugin-kubescape/issues/77)) ([f28d62d](https://github.com/validator-labs/validator-plugin-kubescape/commit/f28d62dd4775667bfb8b84512dbed429d232ddfe))
+* **deps:** update module github.com/validator-labs/validator to v0.0.51 ([#75](https://github.com/validator-labs/validator-plugin-kubescape/issues/75)) ([cc30923](https://github.com/validator-labs/validator-plugin-kubescape/commit/cc309232416b0508f407399adce553b54272e2d6))
+* **deps:** update module github.com/validator-labs/validator to v0.1.0 ([#79](https://github.com/validator-labs/validator-plugin-kubescape/issues/79)) ([7c047a2](https://github.com/validator-labs/validator-plugin-kubescape/commit/7c047a2f197a6f662094990e31c37aaa1f474ca8))
+
 ## [0.0.4](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.3...v0.0.4) (2024-07-26)
 
 

@@ -4,7 +4,7 @@ go 1.22.5
 
 require (
 	github.com/go-logr/logr v1.4.2
-	github.com/kubescape/kubevuln v0.3.25
+	github.com/kubescape/kubevuln v0.3.30
 	github.com/kubescape/storage v0.0.90
 	github.com/onsi/ginkgo/v2 v2.19.1
 	github.com/onsi/gomega v1.34.1
@@ -39,7 +39,7 @@ require (
 	github.com/coreos/go-oidc v2.2.1+incompatible // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/docker/cli v24.0.7+incompatible // indirect
-	github.com/docker/docker v26.1.3+incompatible // indirect
+	github.com/docker/docker v26.1.5+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.8.2 // indirect
 	github.com/docker/go-connections v0.5.0 // indirect
 	github.com/emicklei/go-restful/v3 v3.11.0 // indirect

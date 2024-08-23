@@ -178,8 +178,8 @@ github.com/docker/cli v24.0.7+incompatible h1:wa/nIwYFW7BVTGa7SWPVyyXU9lgORqUb1x
 github.com/docker/cli v24.0.7+incompatible/go.mod h1:JLrzqnKDaYBop7H2jaqPtU4hHvMKP+vjCwu2uszcLI8=
 github.com/docker/distribution v2.8.3+incompatible h1:AtKxIZ36LoNK51+Z6RpzLpddBirtxJnzDrHLEKxTAYk=
 github.com/docker/distribution v2.8.3+incompatible/go.mod h1:J2gT2udsDAN96Uj4KfcMRqY0/ypR+oyYUYmja8H+y+w=
-github.com/docker/docker v26.1.3+incompatible h1:lLCzRbrVZrljpVNobJu1J2FHk8V0s4BawoZippkc+xo=
-github.com/docker/docker v26.1.3+incompatible/go.mod h1:eEKB0N0r5NX/I1kEveEz05bcu8tLC/8azJZsviup8Sk=
+github.com/docker/docker v26.1.5+incompatible h1:NEAxTwEjxV6VbBMBoGG3zPqbiJosIApZjxlbrG9q3/g=
+github.com/docker/docker v26.1.5+incompatible/go.mod h1:eEKB0N0r5NX/I1kEveEz05bcu8tLC/8azJZsviup8Sk=
 github.com/docker/docker-credential-helpers v0.8.2 h1:bX3YxiGzFP5sOXWc3bTPEXdEaZSeVMrFgOr3T+zrFAo=
 github.com/docker/docker-credential-helpers v0.8.2/go.mod h1:P3ci7E3lwkZg6XiHdRKft1KckHiO9a2rNtyFbZ/ry9M=
 github.com/docker/go-connections v0.5.0 h1:USnMq7hx7gwdVZq1L49hLXaFtUdTADjXGp+uj1Br63c=
@@ -448,8 +448,8 @@ github.com/kubescape/go-logger v0.0.22 h1:gle7wH6emOiGv9ljdpVi82pWLQ3jGucrUucvil
 github.com/kubescape/go-logger v0.0.22/go.mod h1:x3HBpZo3cMT/WIdy18BxvVVd5D0e/PWFVk/HiwBNu3g=
 github.com/kubescape/k8s-interface v0.0.162 h1:tIXwuB7073GJV3OPgGMS4kXBh7N709NscVYiePMCvU4=
 github.com/kubescape/k8s-interface v0.0.162/go.mod h1:oF+Yxug3Kpfu9Yr2j63wy7gwswrKXpiqI0mLk/7gF/s=
-github.com/kubescape/kubevuln v0.3.25 h1:h2fH5afNtsDiHFNVT19/Xw1pzXCfjXf1fA/22I/Iywo=
-github.com/kubescape/kubevuln v0.3.25/go.mod h1:tdTVFWlLStCH06j6ifFvlJivrENkVGVXR8JbRbDrF0o=
+github.com/kubescape/kubevuln v0.3.30 h1:7WRg8bEXnbMdyqoelPL061CtMfIqEHWDvSW3ObA04t0=
+github.com/kubescape/kubevuln v0.3.30/go.mod h1:1IYkCqg9p7zhU5P256hQs3w0QqvPQD2LOYswaK4qG/k=
 github.com/kubescape/storage v0.0.90 h1:dcBO3KPaaYZf5ZMb1P3G7D13wPSmdXUJVAIwIDH6v7g=
 github.com/kubescape/storage v0.0.90/go.mod h1:eLCQ7JKpR6JRjtENnN3JduvRLMOyJFtBihfdVC+1hLA=
 github.com/lunixbochs/vtclean v1.0.0/go.mod h1:pHhQNgMf3btfWnGBVipUOjRYhoOsdGqdm/+2c2E2WMI=

@@ -20,6 +20,10 @@ import (
 	"fmt"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
+	"github.com/validator-labs/validator/pkg/plugins"
+
+	"github.com/validator-labs/validator-plugin-kubescape/pkg/constants"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
@@ -35,8 +39,15 @@ type KubescapeValidatorSpec struct {
 	FlaggedCVERule []FlaggedCVE `json:"flaggedCVERule,omitempty" yaml:"flaggedCVERule,omitempty"`
 }
 
+var _ plugins.PluginSpec = (*KubescapeValidatorSpec)(nil)
+
 // FlaggedCVE is a flagged CVE rule.
 type FlaggedCVE string
+
+// PluginCode returns the network validator's plugin code.
+func (s KubescapeValidatorSpec) PluginCode() string {
+	return constants.PluginCode
+}
 
 // Name returns the formatted name of the flagged CVE.
 func (r FlaggedCVE) Name() string {

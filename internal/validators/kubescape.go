@@ -9,7 +9,7 @@ import (
 	kubevuln "github.com/kubescape/kubevuln/repositories"
 	kubescapev1 "github.com/kubescape/storage/pkg/apis/softwarecomposition/v1beta1"
 	validationv1 "github.com/validator-labs/validator-plugin-kubescape/api/v1alpha1"
-	"github.com/validator-labs/validator-plugin-kubescape/internal/constants"
+	"github.com/validator-labs/validator-plugin-kubescape/pkg/constants"
 	vapi "github.com/validator-labs/validator/api/v1alpha1"
 	"github.com/validator-labs/validator/pkg/types"
 	v1 "k8s.io/api/core/v1"

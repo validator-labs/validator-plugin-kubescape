@@ -5,7 +5,7 @@ go 1.22.5
 require (
 	github.com/go-logr/logr v1.4.2
 	github.com/kubescape/kubevuln v0.3.30
-	github.com/kubescape/storage v0.0.90
+	github.com/kubescape/storage v0.0.102
 	github.com/onsi/ginkgo/v2 v2.19.1
 	github.com/onsi/gomega v1.34.1
 	github.com/validator-labs/validator v0.1.0

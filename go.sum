@@ -452,8 +452,8 @@ github.com/kubescape/k8s-interface v0.0.162 h1:tIXwuB7073GJV3OPgGMS4kXBh7N709Nsc
 github.com/kubescape/k8s-interface v0.0.162/go.mod h1:oF+Yxug3Kpfu9Yr2j63wy7gwswrKXpiqI0mLk/7gF/s=
 github.com/kubescape/kubevuln v0.3.30 h1:7WRg8bEXnbMdyqoelPL061CtMfIqEHWDvSW3ObA04t0=
 github.com/kubescape/kubevuln v0.3.30/go.mod h1:1IYkCqg9p7zhU5P256hQs3w0QqvPQD2LOYswaK4qG/k=
-github.com/kubescape/storage v0.0.106 h1:wkyJhU7+ndXT2HumxOtigiYo1wwR7cKFcSar8GG8jho=
-github.com/kubescape/storage v0.0.106/go.mod h1:l9oqEoNIbbxVFTjd1U6NJNwbYfzQtHuvU6OBAkJyBd8=
+github.com/kubescape/storage v0.0.109 h1:/xmsu0/agFdKAGD3S/2Mi5mKwgrrbVjPNsNE+mmB8Fg=
+github.com/kubescape/storage v0.0.109/go.mod h1:l9oqEoNIbbxVFTjd1U6NJNwbYfzQtHuvU6OBAkJyBd8=
 github.com/lunixbochs/vtclean v1.0.0/go.mod h1:pHhQNgMf3btfWnGBVipUOjRYhoOsdGqdm/+2c2E2WMI=
 github.com/lyft/protoc-gen-star v0.5.3/go.mod h1:V0xaHgaf5oCCqmcxYcWiDfTiKsZsRc87/1qhoTACD8w=
 github.com/magiconair/properties v1.8.5/go.mod h1:y3VJvCyxH9uVvJTWEGAELF3aiYNyPKd5NZ3oSwXrF60=

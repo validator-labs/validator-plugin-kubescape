@@ -27,7 +27,7 @@ import (
 
 // KubescapeValidatorSpec defines the desired state of KubescapeValidator
 type KubescapeValidatorSpec struct {
-	//+kubebuilder:default=kubescape
+	// +kubebuilder:default=kubescape
 	Namespace string `json:"namespace,omitempty" yaml:"namespace,omitempty"`
 	// Global Severity Limit Rule
 	SeverityLimitRule SeverityLimitRule `json:"severityLimitRule,omitempty" yaml:"severityLimitRule,omitempty"`
@@ -76,8 +76,8 @@ type KubescapeValidatorStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
-//+kubebuilder:object:root=true
-//+kubebuilder:subresource:status
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // KubescapeValidator is the Schema for the kubescapevalidators API
 type KubescapeValidator struct {
@@ -88,7 +88,7 @@ type KubescapeValidator struct {
 	Status KubescapeValidatorStatus `json:"status,omitempty"`
 }
 
-//+kubebuilder:object:root=true
+// +kubebuilder:object:root=true
 
 // KubescapeValidatorList contains a list of KubescapeValidator
 type KubescapeValidatorList struct {

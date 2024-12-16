@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.6](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.5...v0.0.6) (2024-12-16)
+
+
+### Bug Fixes
+
+* metrics targetPort https -&gt; 8443 ([#111](https://github.com/validator-labs/validator-plugin-kubescape/issues/111)) ([0b79413](https://github.com/validator-labs/validator-plugin-kubescape/commit/0b79413edca706f6e51a58bb52f6f724bdb66ae3))
+
+
+### Dependency Updates
+
+* **deps:** update build digest to 5e4aaa9 ([#106](https://github.com/validator-labs/validator-plugin-kubescape/issues/106)) ([aff19df](https://github.com/validator-labs/validator-plugin-kubescape/commit/aff19dfbbb178ea239b4a9d72c16a1aa435b9731))
+* **deps:** update build digest to 9734871 ([#112](https://github.com/validator-labs/validator-plugin-kubescape/issues/112)) ([09c2bf5](https://github.com/validator-labs/validator-plugin-kubescape/commit/09c2bf5cad92f3e9586d486980cf65a0579cffbe))
+
 ## [0.0.5](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.4...v0.0.5) (2024-12-10)
 
 

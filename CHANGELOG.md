@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.6...v0.0.7) (2024-12-19)
+
+
+### Dependency Updates
+
+* **deps:** update build digest to aa32dd3 ([#113](https://github.com/validator-labs/validator-plugin-kubescape/issues/113)) ([c443fcf](https://github.com/validator-labs/validator-plugin-kubescape/commit/c443fcfbfb18b535f7e8077fa315ad91a5c8d0b7))
+
 ## [0.0.6](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.5...v0.0.6) (2024-12-16)
 
 

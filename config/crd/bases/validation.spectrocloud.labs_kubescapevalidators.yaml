@@ -40,31 +40,48 @@ spec:
           spec:
             description: KubescapeValidatorSpec defines the desired state of KubescapeValidator
             properties:
-              flaggedCVERule:
-                description: Rule for Flagged CVEs
+              flaggedCVEs:
                 items:
-                  description: FlaggedCVE is a flagged CVE rule.
                   type: string
                 type: array
+              ignoredCVEs:
+                description: global ignored CVEs
+                items:
+                  type: string
+                type: array
+              kubescapeRules:
+                items:
+                  properties:
+                    ignoredCVEs:
+                      description: Global Ignore CVEs
+                      items:
+                        type: string
+                      type: array
+                    severityLimitRule:
+                      description: Global Severity Limit Rule
+                      properties:
+                        critical:
+                          type: integer
+                        high:
+                          type: integer
+                        low:
+                          type: integer
+                        medium:
+                          type: integer
+                        negligible:
+                          type: integer
+                        unknown:
+                          type: integer
+                      type: object
+                  type: object
+                maxItems: 5
+                type: array
+                x-kubernetes-validations:
+                - message: KubescapeRules must have a unique RuleName
+                  rule: self.all(e, size(self.filter(x, x.name == e.name)) == 1)
               namespace:
                 default: kubescape
                 type: string
-              severityLimitRule:
-                description: Global Severity Limit Rule
-                properties:
-                  critical:
-                    type: integer
-                  high:
-                    type: integer
-                  low:
-                    type: integer
-                  medium:
-                    type: integer
-                  negligible:
-                    type: integer
-                  unknown:
-                    type: integer
-                type: object
             type: object
           status:
             description: KubescapeValidatorStatus defines the observed state of KubescapeValidator

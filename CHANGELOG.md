@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.0.7](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.6...v0.0.7) (2025-02-27)
+
+
+### Other
+
+* bump to go1.23.6 ([#123](https://github.com/validator-labs/validator-plugin-kubescape/issues/123)) ([bac02e8](https://github.com/validator-labs/validator-plugin-kubescape/commit/bac02e8be5824caf293da09035d41740d00a5f48))
+
+
+### Dependency Updates
+
+* **deps:** update build digest to 1af2678 ([#115](https://github.com/validator-labs/validator-plugin-kubescape/issues/115)) ([19d60de](https://github.com/validator-labs/validator-plugin-kubescape/commit/19d60dec857c71968c40c13ace8c2e63788c96c9))
+* **deps:** update build digest to 1b51737 ([#116](https://github.com/validator-labs/validator-plugin-kubescape/issues/116)) ([225dbb4](https://github.com/validator-labs/validator-plugin-kubescape/commit/225dbb49e58054e32e14b45cea9538e9cb221350))
+* **deps:** update build digest to 2f5dbc3 ([#125](https://github.com/validator-labs/validator-plugin-kubescape/issues/125)) ([61b990d](https://github.com/validator-labs/validator-plugin-kubescape/commit/61b990d969568e4c0d6ccffd7543db78b090c7d3))
+* **deps:** update build digest to 3236c04 ([#119](https://github.com/validator-labs/validator-plugin-kubescape/issues/119)) ([b91b11c](https://github.com/validator-labs/validator-plugin-kubescape/commit/b91b11c4cce8e4dea68289d9672b48a0a0b94dba))
+* **deps:** update build digest to 454e459 ([#118](https://github.com/validator-labs/validator-plugin-kubescape/issues/118)) ([dd79392](https://github.com/validator-labs/validator-plugin-kubescape/commit/dd79392c42a8ea2de733203103a7438d28f0e6d2))
+* **deps:** update build digest to 6a4c752 ([#121](https://github.com/validator-labs/validator-plugin-kubescape/issues/121)) ([4b5f127](https://github.com/validator-labs/validator-plugin-kubescape/commit/4b5f1278452abd026c5e14ee72ce3d1db622f7e3))
+* **deps:** update build digest to 95a81bf ([#124](https://github.com/validator-labs/validator-plugin-kubescape/issues/124)) ([48e2777](https://github.com/validator-labs/validator-plugin-kubescape/commit/48e2777a8437e28690dc0dba2d1f9e107ae3ff07))
+* **deps:** update build digest to aa32dd3 ([#113](https://github.com/validator-labs/validator-plugin-kubescape/issues/113)) ([c443fcf](https://github.com/validator-labs/validator-plugin-kubescape/commit/c443fcfbfb18b535f7e8077fa315ad91a5c8d0b7))
+* **deps:** update build digest to b554bf5 ([#117](https://github.com/validator-labs/validator-plugin-kubescape/issues/117)) ([af9b57b](https://github.com/validator-labs/validator-plugin-kubescape/commit/af9b57b463792f1a4910b9e69aee07cca8586866))
+* **deps:** update build digest to d789840 ([#127](https://github.com/validator-labs/validator-plugin-kubescape/issues/127)) ([febb612](https://github.com/validator-labs/validator-plugin-kubescape/commit/febb612be2ee82b8a5ee05cee4dc47f41c6ef5b7))
+* **deps:** update build digest to d7fbb38 ([#120](https://github.com/validator-labs/validator-plugin-kubescape/issues/120)) ([17c73da](https://github.com/validator-labs/validator-plugin-kubescape/commit/17c73da44dd72da19481d18e497071d7c213917a))
+* **deps:** update build digest to f1e8fd1 ([#126](https://github.com/validator-labs/validator-plugin-kubescape/issues/126)) ([1b24aeb](https://github.com/validator-labs/validator-plugin-kubescape/commit/1b24aeb055957bd2d6345baa2342d9bbbbfe8477))
+
 ## [0.0.6](https://github.com/validator-labs/validator-plugin-kubescape/compare/v0.0.5...v0.0.6) (2024-12-16)
 
 

@@ -3,17 +3,17 @@ module github.com/validator-labs/validator-plugin-kubescape
 go 1.23.6
 
 require (
-	github.com/go-logr/logr v1.4.2
-	github.com/kubescape/kubevuln v0.3.33
-	github.com/kubescape/storage v0.0.111
-	github.com/onsi/ginkgo/v2 v2.20.2
-	github.com/onsi/gomega v1.34.2
-	github.com/validator-labs/validator v0.1.0
-	k8s.io/api v0.31.0
-	k8s.io/apimachinery v0.31.0
-	k8s.io/client-go v0.31.0
-	sigs.k8s.io/cluster-api v1.8.2
-	sigs.k8s.io/controller-runtime v0.19.0
+	github.com/go-logr/logr v1.4.4
+	github.com/kubescape/kubevuln v0.3.430
+	github.com/kubescape/storage v0.0.331
+	github.com/onsi/ginkgo/v2 v2.32.1
+	github.com/onsi/gomega v1.43.0
+	github.com/validator-labs/validator v0.1.16
+	k8s.io/api v0.37.0
+	k8s.io/apimachinery v0.37.0
+	k8s.io/client-go v0.37.0
+	sigs.k8s.io/cluster-api v1.14.1
+	sigs.k8s.io/controller-runtime v0.25.0
 )
 
 require (

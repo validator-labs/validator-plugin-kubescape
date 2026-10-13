@@ -685,8 +685,8 @@ github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07/go.mod h1:kDXzergiv9cb
 github.com/therootcompany/xz v1.0.1 h1:CmOtsn1CbtmyYiusbfmhmkpAAETj0wBIH6kCYaX+xzw=
 github.com/therootcompany/xz v1.0.1/go.mod h1:3K3UH1yCKgBneZYhuQUvJ9HPD19UEXEI0BWbMn8qNMY=
 github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926/go.mod h1:9ESjWnEqriFuLhtthL60Sar/7RFoluCcXsuvEwTV5KM=
-github.com/ulikunitz/xz v0.5.12 h1:37Nm15o69RwBkXM0J6A5OlE67RZTfzUxTj8fB3dfcsc=
-github.com/ulikunitz/xz v0.5.12/go.mod h1:nbz6k7qbPmH4IRqmfOplQw/tblSgqTqBwxkY0oWt/14=
+github.com/ulikunitz/xz v0.5.15 h1:9DNdB5s+SgV3bQ2ApL10xRc35ck0DuIX/isZvIk+ubY=
+github.com/ulikunitz/xz v0.5.15/go.mod h1:nbz6k7qbPmH4IRqmfOplQw/tblSgqTqBwxkY0oWt/14=
 github.com/uptrace/opentelemetry-go-extra/otelutil v0.2.2 h1:CNznWHkrbA6o1q2H/BsH4tIHf4zbKNtndeoV+AH8z0U=
 github.com/uptrace/opentelemetry-go-extra/otelutil v0.2.2/go.mod h1:7YSrHCmYPHIXjTWnKSU7EGT0TFEcm3WwSeQquwCGg38=
 github.com/uptrace/opentelemetry-go-extra/otelzap v0.2.2 h1:uyrW06oJi4iWvhjPLVfk4qrSP2Zm0AMozKKDmp6i4pE=

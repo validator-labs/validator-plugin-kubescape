@@ -1,6 +1,6 @@
 module github.com/validator-labs/validator-plugin-kubescape
 
-go 1.23.6
+go 1.24
 
 require (
 	github.com/go-logr/logr v1.4.2
@@ -81,7 +81,7 @@ require (
 	github.com/jinzhu/copier v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.17.9 // indirect
+	github.com/klauspost/compress v1.18.7 // indirect
 	github.com/kubescape/go-logger v0.0.22 // indirect
 	github.com/kubescape/k8s-interface v0.0.162 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
